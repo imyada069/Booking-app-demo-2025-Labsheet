@@ -569,14 +569,23 @@ Server running on port 3001
 
 ### ขั้นตอนที่ 3.4: ตรวจสอบ Database Structure (ไม่บังคับ)
 
+> Dependencies ถูกติดตั้งแค่ใน Docker container ตอน build image ดังนั้นต้องรัน `npm install` บนเครื่อง host ก่อน จึงจะใช้ `npx prisma` ได้
+
 ```bash
-# เปิด Prisma Studio เพื่อดู database แบบ GUI
 cd backend
+
+# ติดตั้ง dependencies บนเครื่อง host ก่อน
+npm install
+
+# ตั้งค่า DATABASE_URL (database ต้องทำงานอยู่)
+export DATABASE_URL="postgresql://postgres:postgres@localhost:5432/booking_app"
+
+# เปิด Prisma Studio
 npx prisma studio
 # จะเปิด browser ที่ http://localhost:5555
 ```
 
-> 🪟 **Windows**: ต้องติดตั้ง Node.js บนเครื่องก่อน (ไม่ใช่แค่ใน container) เพราะ Prisma Studio รันบนเครื่อง host โดยตรง
+> 🪟 **Windows**: ถ้าเจอ `No database URL found` ให้ตรวจสอบ `.env` ด้วย `cat -A .env` ว่ามี `^M$` หรือไม่ ถ้ามีให้รัน `sed -i 's/\r$//' .env` แล้ว export DATABASE_URL แบบ inline แทน
 
 ### ขั้นตอนที่ 3.5: Start Frontend
 
