@@ -239,7 +239,7 @@ NODE_ENV=development
 ### ขั้นตอนที่ 3.2: Start Database ด้วย Docker
 
 ```bash
-# ยังอยู่ใน backend/ directory
+# ยังอยู่ใน backend/ directory  และ Docker Desktop ต้องรันอยู่
 docker compose up -d
 
 # ตรวจสอบว่า PostgreSQL ทำงาน
