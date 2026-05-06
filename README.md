@@ -1,6 +1,6 @@
 # 🏨 Lab: CI/CD with GitHub Actions — ระบบจองห้องพักออนไลน์
 
-> **ใบงานการทดลอง** สำหรับรายวิชาการออกแบบและพัฒนาซอฟต์แวร์ 1
+> **ใบงานการทดลอง** สำหรับรายวิชาพัฒนาและปรับใช้ซอฟต์แวร์ (Web Development & DevOps)  
 > ใช้คู่กับ Source Code: [booking-app-demo-2025](https://github.com/surachai-p/booking-app-demo-2025)
 
 ---
@@ -41,7 +41,7 @@ Fork Repository → Local Setup → API Testing → สร้าง CI/CD Pipeli
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                    booking-app-demo-2025                     │
+│                    booking-app-demo-2025                      │
 ├───────────────────────────┬──────────────────────────────────┤
 │        frontend/          │           backend/               │
 │                           │                                  │
@@ -51,8 +51,8 @@ Fork Repository → Local Setup → API Testing → สร้าง CI/CD Pipeli
 │                           │  JWT Authentication              │
 │                           │  bcryptjs (password hash)        │
 │                           │                                  │
-│  ☁️  Deploy: Vercel       │  ☁️  Deploy: Render / Railway    │
-└───────────────────────────┴──────────────────────────────────┘ 
+│  ☁️  Deploy: Vercel        │  ☁️  Deploy: Render / Railway    │
+└───────────────────────────┴──────────────────────────────────┘
 ```
 
 ### API Endpoints
@@ -74,12 +74,12 @@ Push to GitHub
        │
        ▼
 ┌──────────────────────┬───────────────────────┐
-│  backend-test        │  frontend-build       │
-│  ─────────────────   │  ──────────────────   │
-│  • Prisma migrate    │  • npm ci             │
-│  • Seed test data    │  • vite build         │
-│  • Newman API tests  │  • Upload artifacts   │
-└──────────┬───────────┴────────────┬──────────┘
+│  backend-test        │  frontend-build        │
+│  ─────────────────   │  ──────────────────    │
+│  • Prisma migrate    │  • npm ci              │
+│  • Seed test data    │  • vite build          │
+│  • Newman API tests  │  • Upload artifacts    │
+└──────────┬───────────┴────────────┬───────────┘
            └────────────┬───────────┘
                         ▼
            ┌────────────────────────┐
@@ -92,19 +92,19 @@ Push to GitHub
                         ▼  (เฉพาะ main branch)
        ┌────────────────┼────────────────┐
        ▼                ▼                ▼
-┌─────────────┐  ┌─────────────┐  ┌──────────────┐
+┌─────────────┐  ┌─────────────┐  ┌─────────────┐
 │deploy-front │  │deploy-render│  │deploy-railway│
-│  (Vercel)   │  │  (Backend)  │  │  (Backend)   │
-└──────┬──────┘  └──────┬──────┘  └──────┬───────┘
-       └────────────────┼────────────────┘
+│  (Vercel)   │  │  (Backend)  │  │  (Backend)  │
+└──────┬──────┘  └──────┬──────┘  └──────┬──────┘
+       └────────────────┼─────────────────┘
                         ▼
-           ┌─────────────────────────┐
+           ┌────────────────────────┐
            │  post-deploy-smoke-test │
-           │  ─────────────────────  │
+           │  ───────────────────── │
            │  • Newman on Production │
-           │  • Security headers ✓   │
-           │  • Frontend reachable ✓ │
-           └─────────────────────────┘
+           │  • Security headers ✓  │
+           │  • Frontend reachable ✓│
+           └────────────────────────┘
 ```
 
 ---
@@ -136,28 +136,65 @@ booking-app-demo-2025/         ← Fork จาก surachai-p
 
 ---
 
-## 📚 เนื้อหาการทดลอง (12 ส่วน)
+## 📚 เนื้อหาการทดลอง (13 ส่วน)
 
 | ส่วน | หัวข้อ | เวลาโดยประมาณ |
 |---|---|---|
+| **0** | ⚠️ ตั้งค่าสำหรับ Windows — Git Bash, LF, `.gitattributes`, VS Code | 20 นาที |
 | **1** | เตรียมโปรเจกต์ — Fork, Clone, ทำความเข้าใจโครงสร้าง | 15 นาที |
 | **2** | Database Schema ด้วย Prisma — อ่านและวิเคราะห์ models | 10 นาที |
 | **3** | Local Development — Docker Compose, Prisma migrate, ทดสอบ API | 20 นาที |
 | **4** | API Testing ด้วย Newman — เขียน Collection, รัน tests | 30 นาที |
 | **5** | วิเคราะห์ Workflow ที่มีอยู่ — ข้อดี/ข้อเสีย/ข้อจำกัด | 10 นาที |
-| **6** | สร้าง CI/CD Workflow สมบูรณ์ — 5 jobs ใน GitHub Actions | 30 นาที |
+| **6** | สร้าง CI/CD Workflow สมบูรณ์ — 6 jobs ใน GitHub Actions | 30 นาที |
 | **7** | Multi-Environment Strategy — QA/Staging/Production | 20 นาที |
 | **8** | ตั้งค่า Cloud Platforms — Vercel, Render, GitHub Secrets | 30 นาที |
 | **9** | Push & Test Pipeline — Post-Deployment Smoke Tests | 20 นาที |
 | **10** | Security ใน CI/CD — Helmet, Rate Limit, CORS, npm audit, TruffleHog | 25 นาที |
-| **11** | Debug Guide — ปัญหาทั่วไปและวิธีแก้ไข | อ้างอิง |
+| **11** | Debug Guide — ปัญหาทั่วไปและปัญหาเฉพาะ Windows | อ้างอิง |
 | **12** | สรุปและประเมินผล — Checklist + คำถาม 6 ข้อ | 20 นาที |
 
-**เวลารวมโดยประมาณ: 3–4 ชั่วโมง**
+**เวลารวมโดยประมาณ: 3–4 ชั่วโมง** (Windows เพิ่มอีก ~20 นาที)
 
 ---
 
-## 🛠️ เครื่องมือที่ต้องเตรียม
+## 🪟 สำหรับผู้ใช้ Windows (ทำก่อนเริ่มทดลอง)
+
+> macOS / Linux ข้ามส่วนนี้ได้เลย
+
+```bash
+# 1. ติดตั้ง Git for Windows → เลือก "Checkout as-is, commit as-is"
+# 2. เปิด Git Bash แล้วรัน:
+git config --global core.autocrlf false
+
+# 3. ตั้งค่า VS Code
+# settings.json → "files.eol": "\n"
+# Default terminal → Git Bash
+
+# 4. หลัง Clone → สร้าง .gitattributes ทันที
+cat > .gitattributes << 'EOF'
+*.sh text eol=lf
+Dockerfile text eol=lf
+docker-compose.yml text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+*.js text eol=lf
+*.prisma text eol=lf
+EOF
+git add .gitattributes && git commit -m "chore: enforce LF"
+git rm --cached -r . && git reset --hard
+
+# 5. เพิ่มใน backend/Dockerfile (safety net)
+# COPY docker-entrypoint.sh ./
+# RUN sed -i 's/\r$//' ./docker-entrypoint.sh   ← เพิ่มบรรทัดนี้
+# RUN chmod +x ./docker-entrypoint.sh
+```
+
+ดูรายละเอียดทั้งหมดได้ที่ **ส่วนที่ 0** ในใบงาน
+
+---
+
+
 
 ### ซอฟต์แวร์ (ติดตั้งล่วงหน้า)
 
