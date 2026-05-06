@@ -1,6 +1,6 @@
 # 🏨 Lab: CI/CD with GitHub Actions — ระบบจองห้องพักออนไลน์
 
-> **ใบงานการทดลอง** สำหรับรายวิชาพัฒนาและปรับใช้ซอฟต์แวร์ (Web Development & DevOps)  
+> **ใบงานการทดลอง** สำหรับรายวิชาการออกแบบและพัฒนาซอฟต์แวร์ 1
 > ใช้คู่กับ Source Code: [booking-app-demo-2025](https://github.com/surachai-p/booking-app-demo-2025)
 
 ---
