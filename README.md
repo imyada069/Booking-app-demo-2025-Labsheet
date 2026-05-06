@@ -41,7 +41,7 @@ Fork Repository → Local Setup → API Testing → สร้าง CI/CD Pipeli
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                    booking-app-demo-2025                      │
+│                    booking-app-demo-2025                     │
 ├───────────────────────────┬──────────────────────────────────┤
 │        frontend/          │           backend/               │
 │                           │                                  │
@@ -51,8 +51,8 @@ Fork Repository → Local Setup → API Testing → สร้าง CI/CD Pipeli
 │                           │  JWT Authentication              │
 │                           │  bcryptjs (password hash)        │
 │                           │                                  │
-│  ☁️  Deploy: Vercel        │  ☁️  Deploy: Render / Railway    │
-└───────────────────────────┴──────────────────────────────────┘
+│  ☁️  Deploy: Vercel       │  ☁️  Deploy: Render / Railway    │
+└───────────────────────────┴──────────────────────────────────┘ 
 ```
 
 ### API Endpoints
@@ -74,12 +74,12 @@ Push to GitHub
        │
        ▼
 ┌──────────────────────┬───────────────────────┐
-│  backend-test        │  frontend-build        │
-│  ─────────────────   │  ──────────────────    │
-│  • Prisma migrate    │  • npm ci              │
-│  • Seed test data    │  • vite build          │
-│  • Newman API tests  │  • Upload artifacts    │
-└──────────┬───────────┴────────────┬───────────┘
+│  backend-test        │  frontend-build       │
+│  ─────────────────   │  ──────────────────   │
+│  • Prisma migrate    │  • npm ci             │
+│  • Seed test data    │  • vite build         │
+│  • Newman API tests  │  • Upload artifacts   │
+└──────────┬───────────┴────────────┬──────────┘
            └────────────┬───────────┘
                         ▼
            ┌────────────────────────┐
@@ -92,19 +92,19 @@ Push to GitHub
                         ▼  (เฉพาะ main branch)
        ┌────────────────┼────────────────┐
        ▼                ▼                ▼
-┌─────────────┐  ┌─────────────┐  ┌─────────────┐
+┌─────────────┐  ┌─────────────┐  ┌──────────────┐
 │deploy-front │  │deploy-render│  │deploy-railway│
-│  (Vercel)   │  │  (Backend)  │  │  (Backend)  │
-└──────┬──────┘  └──────┬──────┘  └──────┬──────┘
-       └────────────────┼─────────────────┘
+│  (Vercel)   │  │  (Backend)  │  │  (Backend)   │
+└──────┬──────┘  └──────┬──────┘  └──────┬───────┘
+       └────────────────┼────────────────┘
                         ▼
-           ┌────────────────────────┐
+           ┌─────────────────────────┐
            │  post-deploy-smoke-test │
-           │  ───────────────────── │
+           │  ─────────────────────  │
            │  • Newman on Production │
-           │  • Security headers ✓  │
-           │  • Frontend reachable ✓│
-           └────────────────────────┘
+           │  • Security headers ✓   │
+           │  • Frontend reachable ✓ │
+           └─────────────────────────┘
 ```
 
 ---
