@@ -1427,27 +1427,33 @@ jobs:
 
 **สร้าง PostgreSQL Database**:
 
-1. Render Dashboard → **New** → **PostgreSQL**
-2. ตั้งชื่อ: `booking-db`
-3. เลือก Region ที่ใกล้ที่สุด (Singapore)
-4. Free tier → **Create Database**
-5. **คัดลอก Internal Database URL** (ใช้ภายใน Render network เร็วกว่า External URL)
+1. ไปที่ https://render.com -> Signin ด้วย GitHub
+2. Activate Account 
+3. Create a new workspace -> เลือกตามขั้นตอน Wizard
+4. Render Dashboard ที่เมนูมุมบนขวามือ → **New** → **PostgreSQL**
+5. ตั้งชื่อ: `booking-db`
+6. เลือก Region ที่ใกล้ที่สุด (Singapore)
+7. PostgreSQL Version -> 16
+8. Plan Option -> Free → **Create Database** -> รอการสร้างฐานข้อมูล
+9. **คัดลอก Internal Database URL** (ใช้ภายใน Render network เร็วกว่า External URL)
 
 **สร้าง Web Service (Backend)**:
 
 1. Render Dashboard → **New** → **Web Service**
 2. Connect GitHub repository
-3. กำหนดค่า:
+3. Only select repositories -> เลือก Repository -> Install
+4. เลือก Repository เพื่อกำหนดค่า
+5. กำหนดค่า:
 
    | Setting | Value |
    |---|---|
    | **Name** | `booking-backend` |
    | **Root Directory** | `backend` |
-   | **Runtime** | Node |
+   | **Language** | Node |
    | **Build Command** | `npm install && npx prisma generate && npx prisma migrate deploy` |
    | **Start Command** | `npm start` |
 
-4. เพิ่ม Environment Variables:
+6. เพิ่ม Environment Variables:
 
    ```
    DATABASE_URL=<Internal Database URL จากข้อ 1>
@@ -1456,7 +1462,9 @@ jobs:
    PORT=3001
    ```
 
-5. **คัดลอก Deploy Hook URL**: Settings → **Deploy Hooks** → **Create Deploy Hook**
+7. Deploy Web Service
+8. Settings → **Deploy Hooks** 
+9. **คัดลอก Deploy Hook URL**: 
 
 ### ขั้นตอนที่ 8.3: ตั้งค่า GitHub Secrets
 
