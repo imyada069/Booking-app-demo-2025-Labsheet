@@ -1400,17 +1400,19 @@ jobs:
 ### ขั้นตอนที่ 8.1: ตั้งค่า Vercel (Frontend)
 
 1. **เชื่อม Repository กับ Vercel**:
-   - ไปที่ [vercel.com](https://vercel.com) → **Add New Project**
-   - Import GitHub repository `booking-app-demo-2025`
+   - ไปที่ [vercel.com](https://vercel.com) →
+   - เลือก Overview -> เลือก ... ที่ Account ของตนเอง -> View
+   - ด้านขวา เลือกเมนู **Add New** -> Project
+   - Import GitHub repository -> Only select repositories -> `booking-app-demo-2025`
    - กำหนดค่า:
-     - **Framework Preset**: Vite
+     - **Application Preset**: Vite
      - **Root Directory**: `frontend`
      - **Build Command**: `npm run build`
      - **Output Directory**: `dist`
 
 2. **ตั้งค่า Environment Variables ใน Vercel**:
 
-   | Variable | Value | Environment |
+   | Key | Value | Environment |
    |---|---|---|
    | `VITE_API_URL` | `https://your-backend.onrender.com` | Production |
    | `VITE_API_URL` | `https://your-qa-backend.onrender.com` | Preview |
@@ -1418,6 +1420,7 @@ jobs:
 3. **รับ Vercel Token สำหรับ GitHub Actions**:
    - ไปที่ Vercel → Account Settings → **Tokens**
    - สร้าง token ใหม่ ตั้งชื่อ `GitHub Actions`
+   - กำหนด SCOPE -> EXPIRATION -> Create
    - คัดลอกและเก็บ token ไว้
 
 ### ขั้นตอนที่ 8.2: ตั้งค่า Render (Backend)
