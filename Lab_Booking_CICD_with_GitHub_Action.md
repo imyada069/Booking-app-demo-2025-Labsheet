@@ -851,7 +851,7 @@ find . -name "*.postman_collection.json"
             "header": [{"key": "Content-Type", "value": "application/json"}],
             "body": {
               "mode": "raw",
-              "raw": "{\"guestName\": \"Test Guest\", \"guestEmail\": \"test@example.com\", \"roomId\": {{roomId}}, \"checkIn\": \"2025-09-01\", \"checkOut\": \"2025-09-03\"}"
+              "raw": "{\"fullname\": \"Test Guest\", \"email\": \"test@example.com\", \"phone\": \"0123456789\", \"roomId\": {{roomId}}, \"checkin\": \"2025-09-01\", \"checkout\": \"2025-09-03\", \"guests\": 2}"
             },
             "url": "{{baseUrl}}/api/bookings"
           }
